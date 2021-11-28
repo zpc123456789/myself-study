@@ -2,3 +2,14 @@ server:
   port: 8080
   servlet:
     context-path: /study
+
+
+
+#  spring.mvc.view.prefix=/
+#  spring.mvc.view.suffix=.jsp
+
+spring:
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
