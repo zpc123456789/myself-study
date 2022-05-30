@@ -20,9 +20,10 @@ public class RedissonUtil {
         // anyLock.lock(2, TimeUnit.SECONDS); 直接加锁
         boolean lock = false;
         try {
-            // 尝试加锁，最多等待100秒
-//            lock = anyLock.tryLock(100, 10, TimeUnit.SECONDS);
-            lock = anyLock.tryLock(3, TimeUnit.SECONDS);
+            // 尝试加锁，最多等待100秒，设置了锁时间5后释放锁
+//            lock = anyLock.tryLock(100, 5, TimeUnit.SECONDS);
+            // 看门狗机制
+            lock = anyLock.tryLock(5, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
             log.error("get redisson lock exception", e);
         }

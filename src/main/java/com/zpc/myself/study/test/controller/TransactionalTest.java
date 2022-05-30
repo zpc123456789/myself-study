@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @RestController
@@ -53,6 +54,7 @@ public class TransactionalTest {
         try {
             if (redissonUtil.setLock()) {
                 map.put("map", "获取到分布式锁");
+                Thread.sleep(9000);
             } else {
                 List<ScoreRsp> scoreRsps = testDao.selectMaxScore();
                 map.put("map", scoreRsps);
@@ -60,7 +62,7 @@ public class TransactionalTest {
         } catch (Exception e) {
             log.error("get some error", e);
         } finally {
-//            redissonUtil.delLock("anyLock");
+            redissonUtil.delLock("anyLock");
         }
         return map;
     }

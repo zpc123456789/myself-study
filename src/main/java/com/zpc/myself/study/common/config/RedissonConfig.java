@@ -13,6 +13,8 @@ public class RedissonConfig {
     public RedissonClient redissonClient(){
         Config config = new Config();
         config.useSingleServer().setAddress("redis://127.0.0.1:6379");
+        // 设置看门狗最大延长锁时间，默认是30秒
+//        config.setLockWatchdogTimeout(30000);
         return Redisson.create(config);
     }
 }
