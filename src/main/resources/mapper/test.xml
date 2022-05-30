@@ -10,4 +10,14 @@
         select * from t_book
     </select>
 
+    <select id="selectMaxScore" resultType="com.zpc.myself.study.test.rsp.ScoreRsp">
+        select t.name, t.score, t.class clazz
+            from t_score t inner join
+                (select t.class clazz, max(t.score) score from t_score t group by t.class) a
+            on t.class = a.clazz
+                and t.score = a.score;
+    </select>
+
+
+
 </mapper>

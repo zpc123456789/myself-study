@@ -1,11 +1,13 @@
 package com.zpc.myself.study.test.controller;
 
 import com.zpc.myself.study.common.config.ThreadLocalConfig;
+import com.zpc.myself.study.common.util.RedisUtil;
 import com.zpc.myself.study.common.util.UserUtil;
 import com.zpc.myself.study.test.dao.TestDao;
 import com.zpc.myself.study.test.rsp.BookRsp;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +24,9 @@ public class TestController {
 
     @Autowired
     private ThreadLocalConfig threadLocalConfig;
+
+    @Autowired
+    private RedisUtil redisUtil;
 
     @PostMapping("/application/test")
     public Object read() {
@@ -42,5 +47,12 @@ public class TestController {
         return "name: " + name + " age: " + age;
     }
 
+    @Transactional
+    @PostMapping("redis/test")
+    public String redisTest() {
+        redisUtil.setKey("test", "hello");
+        String test = redisUtil.getKey("test");
+        return test;
+    }
 
 }
