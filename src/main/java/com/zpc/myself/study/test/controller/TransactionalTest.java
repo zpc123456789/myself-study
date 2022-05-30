@@ -62,7 +62,8 @@ public class TransactionalTest {
         } catch (Exception e) {
             log.error("get some error", e);
         } finally {
-            redissonUtil.delLock("anyLock");
+            // 未设置锁的过期时间的时候，也就是看门狗机制下才会又释放锁的动作，否则会抛出异常
+//            redissonUtil.delLock("anyLock");
         }
         return map;
     }
