@@ -1,4 +1,4 @@
-package com.zpc.myself.study.test.controller;
+package com.zpc.myself.study.test.mytest;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -16,6 +16,7 @@ public class LockTest {
 
     }
 }
+
 class TestWay{
     public void testOne() {
         System.out.println("test one");

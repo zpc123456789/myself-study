@@ -1,4 +1,4 @@
-package com.zpc.myself.study.test.controller;
+package com.zpc.myself.study.test.mytest;
 
 
 import java.util.concurrent.Callable;

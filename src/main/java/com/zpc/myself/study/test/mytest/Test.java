@@ -1,6 +1,5 @@
-package com.zpc.myself.study.test.controller;
+package com.zpc.myself.study.test.mytest;
 
-import com.zpc.myself.study.test.proxy.staticProxy.MainType;
 import lombok.Data;
 
 public class Test {
@@ -18,6 +17,7 @@ public class Test {
 
     }
 }
+
 @Data
 class Dog{
     private String name;
