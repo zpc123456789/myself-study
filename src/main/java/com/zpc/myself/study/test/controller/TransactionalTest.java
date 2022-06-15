@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @RestController
@@ -22,10 +21,10 @@ public class TransactionalTest {
     @Autowired
     private TestDao testDao;
 
-    @Autowired
+//    @Autowired
     private RedissonUtil redissonUtil;
 
-    @Autowired
+//    @Autowired
     private RedisUtil redisUtil;
 
     @Transactional

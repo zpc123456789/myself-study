@@ -4,12 +4,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
 
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
-@Configuration
+//@Configuration
 public class RedissonUtil {
 
     @Autowired

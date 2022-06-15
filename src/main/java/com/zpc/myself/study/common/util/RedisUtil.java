@@ -1,12 +1,11 @@
 package com.zpc.myself.study.common.util;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
 import java.util.concurrent.TimeUnit;
 
-@Configuration
+//@Configuration
 public class RedisUtil {
     @Autowired
     private StringRedisTemplate redisTemplate;
